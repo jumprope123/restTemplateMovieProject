@@ -30,6 +30,7 @@ public class YTSApi{
         Long year;
         String genres[];
         Double rating;
+        String summary;
     }
 
 }

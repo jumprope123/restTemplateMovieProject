@@ -3,6 +3,7 @@ package shin.spring.mvc.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import shin.spring.mvc.sevice.movieService;
 
@@ -19,6 +20,14 @@ public class movieController {
         Object obj = movieService.response(sort_by, order_by);
         modelAndView.setViewName("/list");
         modelAndView.addObject("response",obj);
+        return modelAndView;
+    }
+
+    @PostMapping("/view")
+    public ModelAndView view(String summary, String largeCoverImage, ModelAndView modelAndView){
+        modelAndView.setViewName("/view");
+        modelAndView.addObject("summary",summary);
+        modelAndView.addObject("largeCoverImage",largeCoverImage);
         return modelAndView;
     }
 
